@@ -12,7 +12,7 @@ class Span
         class FullException : public std::exception
         {
             public:
-                virtual const char *what() throw();
+                virtual const char *what() const throw();
         };
         Span();
         Span(unsigned int size);
@@ -21,6 +21,21 @@ class Span
         ~Span();
 
         void    addNumber(int number);
+        unsigned int shortestSpan() const;
+        unsigned int longestSpan() const;
+        template <typename Iterator>
+        void addNumbers(Iterator begin, Iterator end)
+        {
+            size_t count = static_cast<size_t>(std::distance(begin, end));
+            if (numbers.size() + count > size)
+            throw FullException();
+            numbers.insert(numbers.end(), begin, end);
+        }
+        class noSpanException : std::exception
+        {
+            public:
+                virtual const char *what() const throw();
+        };
 };
 
 #endif

@@ -6,11 +6,11 @@
 
 class NotFoundException : public std::exception
 {
-public:
-    virtual const char *what() const throw()
-    {
-        return "Value not found in container";
-    }
+    public:
+        virtual const char *what() const throw()
+        {
+            return "Value not found in container";
+        }
 };
 
 template <typename T>
