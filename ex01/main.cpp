@@ -2,6 +2,8 @@
 #include <iostream>
 #include <exception>
 #include <list>
+#include <vector>
+#include <cstdlib>
 
 int main()
 {
