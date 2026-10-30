@@ -28,7 +28,7 @@ class Span
         {
             size_t count = static_cast<size_t>(std::distance(begin, end));
             if (numbers.size() + count > size)
-            throw FullException();
+                throw FullException();
             numbers.insert(numbers.end(), begin, end);
         }
         class noSpanException : std::exception
